@@ -1,22 +1,41 @@
-# Getting Started with Create React App
+# Book List 📚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting Started
 
-## Available Scripts
+Follow these steps to run the application locally on your machine.
 
-In the project directory, you can run:
+### Prerequisites
 
-### `json-server ./src/api/db.json --port 3005`
+Before you begin, make sure you have the following software installed on your computer:
 
-Runs the server in the development mode.\
-Open [http://localhost:3005](http://localhost:3005/books) to view it in the browser.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
 
-Except `/books` you can check `/authors` and `./categories`.
+### Installation
 
-### `npm start`
+1. Clone this repository to your local machine:
+   `git clone https://github.com/irynabolbat/book_list.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Navigate to the project directory:
+  `cd book_list`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3. Install project dependencies using npm:
+  `npm install` or `npm i`
+
+4. To run the JSON server, execute the following command:
+  `json-server ./src/api/db.json --port 3005`
+
+  This will start the server in development mode. You can access the server's endpoints at the following URLs:
+  http://localhost:3005/books
+  http://localhost:3005/authors
+  http://localhost:3005/categories
+
+5. Running the Application
+  To run the application, execute the following command:
+  `npm start`
+
+  This will start the app in development mode. You can access the application in your web browser at:
+  http://localhost:3000
+
+  The page will automatically reload if you make any code edits, and you will also see any lint errors in the console.
+
