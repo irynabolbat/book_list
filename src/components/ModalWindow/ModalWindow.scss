@@ -1,0 +1,64 @@
+.ModalContainer {
+  position: fixed;
+  box-sizing: border-box;
+  padding: 15px;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #89939aa4;
+  opacity: 1;
+  overflow: hidden;
+  z-index: 6;
+}
+
+.ModalWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 250px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 4px 20px;
+  z-index: 7;
+
+  &__CloseBtn {
+    position: fixed;
+    top: -15px;
+    right: -10px;
+    width: 15%;
+    background-color: #fff;
+    
+    cursor: pointer;
+    z-index: 2;
+
+    &__Icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__Img {
+    margin-top: 30px;
+    text-align: center;
+
+    &__Icon {
+      width: 35%;
+      height: 35%;
+    }
+  }
+
+  &__Text {
+    width: 250px;
+    margin: 15px 0;
+    text-align: center;
+  }
+}

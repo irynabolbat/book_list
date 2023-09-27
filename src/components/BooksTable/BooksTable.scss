@@ -1,0 +1,106 @@
+.Wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Table {
+  display: table;
+  margin: 0 3%;
+  margin-bottom: 5%;
+  width: 90dvw;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+
+  &__Heared {
+    color: #ffffff;
+    font-weight: 900;
+    background-color: #2980b9;
+  }
+
+  &__Column {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__Cell {
+    display: table-cell;
+    padding: 6px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  &__Row {
+    display: table-row;
+    background-color: #f6f6f6;
+  
+    &:nth-of-type(odd) {
+      background-color: #e9e9e9;
+    }
+
+    &:hover {
+      background-color: #cecccc;
+    }
+  }
+
+  &__Buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__Edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__Button {
+    border: none;
+    border-radius: 5px;
+    color: #fff; 
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__Deactivate {
+    background-color: #909090;
+
+    &:hover {
+      background-color: #adacac;
+    }
+  }
+
+  &__Reactivate {
+    background-color: #2980b9;
+
+  &:hover {
+    background-color: rgba(92, 137, 185, 0.808)
+  }
+  }
+
+  &__Delete {
+    background-color: #dc3545;
+
+    &:hover {
+      background-color: #f07884;
+    }
+  }
+
+  &__Icon {
+    width: 25px;
+    height: 25px;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      border-radius: 5px;
+      background-color: #adacac;
+    }
+  }
+}

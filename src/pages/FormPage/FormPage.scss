@@ -1,0 +1,156 @@
+.FormPage {
+  &__Title {
+    text-align: center;
+  }
+
+  &__BackLink {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-weight: 600;
+    margin: 20px;
+    margin-left: 8.5%;
+    text-decoration: none;
+
+    &:hover {
+      color: rgb(70, 70, 70);
+    }
+  }
+
+  &__Icon {
+    width: 18px;
+    height: 18px;
+    padding-right: 5px;
+  }
+
+  &__Form {
+    max-width: 300px;
+    margin: 0 auto;
+
+    @media (min-width: 420px) {
+      max-width: 400px;
+    }
+
+    &__Group {
+      margin-bottom: 20px;
+    }
+
+    &__Lable {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    &__Input {
+      width: 94%;
+      padding: 10px;
+      color: #555;
+      font-size: 14px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    
+      transition: background-color 0.3s, color 0.3s;
+      transition: box-shadow 0.3s, color 0.3s;
+
+      &:hover {
+        border-color: #2980b9;
+        box-shadow: 0 0 5px rgba(92, 137, 185, 0.808);
+      }
+    }
+
+    &__Select {
+      width: 94%;
+      padding: 10px;
+      color: #555;
+      font-size: 14px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+      transition: background-color 0.3s, color 0.3s;
+      transition: box-shadow 0.3s, color 0.3s;
+
+      &:hover {
+        border-color: #2980b9;
+        box-shadow: 0 0 5px rgba(92, 137, 185, 0.808);
+      }
+
+      &__Disabled {
+        border-color: #ccc !important;
+        box-shadow: none !important;
+        cursor: not-allowed;
+      }
+    }
+
+    &__Option {
+      background-color: #fff;
+      color: #555;
+    }
+
+    &__Container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 5px;
+    }
+
+    &__Span {
+      padding-inline: 10px;
+    }
+
+    &__Button {
+      color: #fff;
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #2980b9;
+      border: none;
+      border-radius: 5px;
+
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+         background-color: rgba(92, 137, 185, 0.808);
+      }
+    }
+
+    &__Error {
+      color: red;
+      font-size: 14px;
+    }
+
+    &__AddButton {
+      padding: 3px;
+      color: #fff;
+      background-color: #2980b9;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      
+      &:hover {
+        cursor: pointer;
+        background-color: rgba(92, 137, 185, 0.808);
+      }
+    }
+
+    &__CloseButton {
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border: none;
+      transition: background-color 0.3s, color 0.3s;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__CloseIcon {
+      width: 25px;
+      height: 25px;
+      padding-right: 5px;
+    }
+  }
+}

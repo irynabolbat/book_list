@@ -1,0 +1,12 @@
+.Error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: orange;
+
+  &__Icon {
+    width: 27px;
+    height: 27px;
+    padding-right: 5px;
+  }
+}

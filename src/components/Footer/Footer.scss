@@ -1,0 +1,19 @@
+.Footer {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  bottom: 0;
+  background-color: white;
+  z-index: 5;
+
+  border-top: 0.5px solid rgb(202, 202, 202);
+
+  &__Icon {
+    width: 35px;
+    height: 35px;
+    padding-top: 40%;
+    padding-bottom: 40%;
+  }
+}
