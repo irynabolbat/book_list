@@ -20,10 +20,10 @@ type Props = {
 export const CategoryForm:React.FC<Props> = ({
   formData, setFormData, findCategoryById, findBookById, error
 }) => {
+  const { selectedBookId, categories } = useContext(AppContext);
+
   const [isCategoryInputVisible, setIsCategoryInputVisible] = useState(false);
   const [isCategoryButtonVisible, setIsCategoryButtonVisible] = useState(true);
-
-  const { selectedBookId, categories } = useContext(AppContext);
 
   const selectedBook = selectedBookId ? findBookById(selectedBookId) : null;
   const selectedCategory = selectedBook ? findCategoryById(selectedBook.categoryId!) : null;

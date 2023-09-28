@@ -61,7 +61,7 @@
     }
 
     &__Select {
-      width: 94%;
+      width: 100%;
       padding: 10px;
       color: #555;
       font-size: 14px;
@@ -100,6 +100,11 @@
       padding-inline: 10px;
     }
 
+    &__BtnsContainer {
+      display: flex;
+      gap: 5px;
+    }
+
     &__Button {
       color: #fff;
       font-size: 16px;
@@ -114,6 +119,14 @@
       &:hover {
          background-color: rgba(92, 137, 185, 0.808);
       }
+    }
+
+    &__CancelButton {
+      background-color: #dc3545 !important;
+
+      &:hover {
+        background-color: #f07884 !important;
+     }
     }
 
     &__Error {
@@ -136,8 +149,11 @@
     }
 
     &__CloseButton {
-      width: 25px;
-      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
       background-color: #fff;
       border: none;
       transition: background-color 0.3s, color 0.3s;
@@ -148,9 +164,9 @@
     }
 
     &__CloseIcon {
-      width: 25px;
-      height: 25px;
-      padding-right: 5px;
+      width: 30px;
+      height: 30px;
+      padding: 0;
     }
   }
 }

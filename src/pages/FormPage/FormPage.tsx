@@ -36,13 +36,28 @@ export const FormPage = () => {
     newCategory: '',
     isbn: '',
   });
+
+  let bookTitle, bookAuthor, bookCategory, bookIsbn;
   
+  if (selectedBookId) {
+    bookTitle = findBookById(selectedBookId)?.title;
+    bookAuthor = findBookById(selectedBookId)?.authorId?.toString();
+    bookCategory = findBookById(selectedBookId)?.categoryId?.toString();
+    bookIsbn = findBookById(selectedBookId)?.isbn?.toString();
+  } else {
+    bookTitle = ''
+    bookAuthor = ''
+    bookCategory = ''
+    bookIsbn = ''
+  }
+
   const [editData, setEditData] = useState({
-    editTitle: '',
-    editAuthor: '',
-    editCategory: '',
-    editIsbn: '',
+    editTitle: bookTitle,
+    editAuthor: bookAuthor,
+    editCategory: bookCategory,
+    editIsbn: bookIsbn,
   });
+  
 
   const [errors, setErrors] = useState({
     title: '',
@@ -163,7 +178,7 @@ export const FormPage = () => {
       authorId: formData.selectedAuthorId !== '' ? +formData.selectedAuthorId : createdNewAuthor.id,
       categoryId: formData.selectedCategoryId ? +formData.selectedCategoryId : createdNewCategory.id,
       isbn: +formData.isbn,
-      createdAt: new Date().toISOString(),
+      createdAt: new Date().toString(),
       modifiedAt: '--',
       status: Status.Active,
     };
@@ -175,31 +190,16 @@ export const FormPage = () => {
   }
 
   function updateBookInfo() {
-    const createdEditAuthor = ({
-      id: createId(),
-      name: editData.editAuthor
-    });
-  
-    const createdEditCategory = ({
-      id: createId(),
-      name: editData.editCategory
-    }); 
-
     const updatedBook = {
       id: selectedBookId || 0,
-      title: selectedBookId ? findBookById(selectedBookId)?.title || '' : editData.editTitle || '',
-      authorId: selectedBookId ? findBookById(selectedBookId)?.authorId || 0 : createdEditAuthor.id || 0,
-      categoryId: selectedBookId ? findBookById(selectedBookId)?.categoryId || 0 : createdEditCategory.id || 0,
-      isbn: selectedBookId ? findBookById(selectedBookId)?.isbn || 0 : +editData.editIsbn || 0,
+      title: editData.editTitle !== '' ? editData.editTitle! : findBookById(selectedBookId)?.title!,
+      authorId: editData.editAuthor !== '' ? +editData.editAuthor! : findBookById(selectedBookId)?.authorId!,
+      categoryId: editData.editCategory !== '' ? +editData.editCategory! : findBookById(selectedBookId)?.categoryId!,
+      isbn: editData.editIsbn !== '' ? +editData.editIsbn! : findBookById(selectedBookId)?.isbn!,
       createdAt: findBookById(selectedBookId)?.createdAt || '',
-      modifiedAt: new Date().toISOString(),
+      modifiedAt: new Date().toString(),
       status: findBookById(selectedBookId)?.status || '',
     };
-    
-
-    addAuthor(createdEditAuthor);
-
-    addCategory(createdEditCategory);
 
     updateBook(updatedBook);
   }
@@ -207,26 +207,32 @@ export const FormPage = () => {
   function checkForm() {
     const currentErrors = {...errors};
 
-    if (formData.title.trim() === '' && editData.editTitle.trim() === '') {
+    if (formData.title.trim() === '' && editData.editTitle!.trim() === '') {
       currentErrors.title = '*Book title cannot be empty';
     } else {
       currentErrors.title = '';
     }
 
-    if ((formData.selectedAuthorId === '' && formData.newAuthor.trim() === '') && editData.editAuthor.trim() === '') {
+    if ((formData.selectedAuthorId === '' && formData.newAuthor.trim() === '') && editData.editAuthor!.trim() === '') {
       currentErrors.author = 'Choose the author or add a new one';
     } else {
       currentErrors.author = '';
     }
 
-    if ((formData.selectedCategoryId === '' && formData.newCategory.trim() === '') && editData.editCategory.trim() === '') {
+    if ((formData.selectedCategoryId === '' && formData.newCategory.trim() === '') && editData.editCategory!.trim() === '') {
       currentErrors.category = 'Choose the category or add a new one';
     } else {
       currentErrors.category = '';
     }
 
-    if (formData.isbn.trim() === '' && editData.editIsbn.trim() === '') {
+    if (formData.isbn.trim() === '' && editData.editIsbn!.trim() === '') {
       currentErrors.isbn = '*ISBN cannot be empty';
+    } else {
+      currentErrors.isbn = '';
+    }
+
+    if (formData.isbn.trim().length !== 13 && editData.editIsbn!.trim().length !== 13) {
+      currentErrors.isbn = '*ISBN should have 13 digits';
     } else {
       currentErrors.isbn = '';
     }
@@ -320,13 +326,28 @@ export const FormPage = () => {
                   <span className="FormPage__Form__Error">{errors.isbn}</span>
                 )}
               </div>
-            
-              <button type="submit" className='FormPage__Form__Button'>
-                {!selectedBookId
-                  ? 'Add a Book'
-                  : 'Edit Book'
-                }
-              </button>
+
+              {!selectedBookId 
+                ? (
+                  <button type="submit" className='FormPage__Form__Button'>
+                    Add a Book
+                  </button>
+                ) 
+                : (
+                <div className='FormPage__Form__BtnsContainer'>
+                  <button type="submit" className='FormPage__Form__Button'>
+                    Edit Book
+                  </button>
+
+                  <button 
+                    type="submit" 
+                    className='FormPage__Form__Button FormPage__Form__CancelButton'
+                    onClick={() => navigate('/')}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
             </form>
           )
           : <Loader />

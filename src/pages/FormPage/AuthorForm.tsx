@@ -12,7 +12,7 @@ type Props = {
     selectedAuthorId: string;
     newAuthor: string;
   }, 
-  setFormData:  React.Dispatch<React.SetStateAction<FormDataProp>>, 
+  setFormData: React.Dispatch<React.SetStateAction<FormDataProp>>, 
   findAuthorById: (value: number) => Author | undefined, 
   findBookById: (value: number) => Book | undefined, 
   error: string,
@@ -21,10 +21,10 @@ type Props = {
 export const AuthorForm:React.FC<Props> = ({ 
   formData, setFormData, findAuthorById, findBookById, error,
 }) => {
+  const { selectedBookId, authors } = useContext(AppContext);
+
   const [isAddAuthorInputVisible, setIsAddAuthorInputVisible] = useState(false);
   const [isAddAuthorButtonVisible, setIsAddAuthorButtonVisible] = useState(true);
-
-  const { selectedBookId, authors } = useContext(AppContext);
 
   const selectedBook = selectedBookId ? findBookById(selectedBookId) : null;
   const selectedAuthor = selectedBook ? findAuthorById(selectedBook.authorId!) : null;
@@ -63,7 +63,7 @@ export const AuthorForm:React.FC<Props> = ({
       selectedAuthorId
     }));
   };
-  
+
   return (
     <div className='FormPage__Form__Group'>
       <label htmlFor="author" className='FormPage__Form__Lable'>Author name:</label>
