@@ -26,8 +26,11 @@ Before you begin, make sure you have the following software installed on your co
   `json-server ./src/api/db.json --port 3005`
 
   This will start the server in development mode. You can access the server's endpoints at the following URLs:
+  
   http://localhost:3005/books
+  
   http://localhost:3005/authors
+  
   http://localhost:3005/categories
 
 5. Running the Application
