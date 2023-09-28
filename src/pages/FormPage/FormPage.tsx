@@ -342,9 +342,11 @@ export const FormPage = () => {
                   <button 
                     type="submit" 
                     className='FormPage__Form__Button FormPage__Form__CancelButton'
-                    onClick={() => navigate('/')}
+                    onClick={() => clearForm()}
                   >
-                    Cancel
+                    <Link to='/' className='FormPage__Form__CancelLink'>
+                      Cancel
+                    </Link>
                   </button>
                 </div>
               )}

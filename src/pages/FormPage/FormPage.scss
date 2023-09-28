@@ -126,7 +126,12 @@
 
       &:hover {
         background-color: #f07884 !important;
-     }
+      }
+    }
+
+    &__CancelLink {
+      color: #fff !important;
+      text-decoration: none !important;
     }
 
     &__Error {
